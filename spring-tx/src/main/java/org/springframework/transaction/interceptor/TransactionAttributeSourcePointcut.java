@@ -26,6 +26,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 切入点：方法匹配（检查这个方法是否注解了@Transcation）
  * Inner class that implements a Pointcut that matches if the underlying
  * {@link TransactionAttributeSource} has an attribute for a given method.
  *
@@ -43,6 +44,7 @@ abstract class TransactionAttributeSourcePointcut extends StaticMethodMatcherPoi
 			return false;
 		}
 		TransactionAttributeSource tas = getTransactionAttributeSource();
+		// 判断业务类上是否有 @Transaction 注解
 		return (tas == null || tas.getTransactionAttribute(method, targetClass) != null);
 	}
 

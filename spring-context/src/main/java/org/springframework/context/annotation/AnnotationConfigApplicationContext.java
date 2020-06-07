@@ -85,7 +85,13 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
 		this();
+		// 1. 创建和注册 Spring 启动所需要的对象信息
+		// 2. 加载注册 AppConfig 类，获取配置信息
 		register(componentClasses);
+		// 1. 扫描所有的类
+		// 2. 解读所有类并为每个类创建一个 BeanDefinition 对象存入 BeanDefinitionMap
+		// 3. 检查所有的 BeanDefinition
+		// 4. 根据检查结果创建对应的对象，注入属性，执行 AOP 操作，并且将创建的对象存入 singletonObjects
 		refresh();
 	}
 
