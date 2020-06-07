@@ -21,6 +21,19 @@ include "spring-webflux"
 include "spring-websocket"
 include "spring-framework-bom"
 
+/* 以下为自建模块 */
+//include 'Servlet'
+//include 'Design-Patterns'
+//include 'Iterator'
+//include 'simulateTomcat'
+//include 'concurrent'
+//include 'spring-anotation'
+//include 'springmvc-source-learnning'
+//include 'zookeeper-learnning'
+//include 'four-reference'
+//include 'distributed-locks'
+//include 'tx-learning'
+
 // Exposes gradle buildSrc for IDE support
 include "buildSrc"
 rootProject.children.find{ it.name == "buildSrc" }.name = "spring-build-src"
@@ -29,3 +42,5 @@ rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
+include 'tx-learning'
+
